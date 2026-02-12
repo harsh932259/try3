@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Luxury Apartment – Baner | Paradise Realtors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Apartment – Sahakarnagar | Paradise Realtors</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav>
-<div class="nav-wrap">
-<img src="images/logo.png" alt="Paradise Realtors">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="rent.html">Home for Rent</a></li>
-<li><a href="sale.html">Home for Sale</a></li>
-<li><a href="plot.html">Plot for Sale</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <div class="nav-wrap">
+    <img src="images/logo.png" alt="Paradise Realtors">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="rent.html">Home for Rent</a></li>
+      <li><a href="sale.html">Home for Sale</a></li>
+      <li><a href="plot.html">Plot for Sale</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="hero" style="
@@ -27,68 +28,67 @@ url('images/sale1-1.jpeg');
 background-size:cover;
 background-position:center;
 ">
-<h1>Luxury Apartment – Sahakarnagar</h1>
+  <h1>Luxury Apartment – Sahakarnagar</h1>
 </div>
 
 <section>
-<div class="container split">
+  <div class="container split">
 
-<div>
+    <div>
 
-<h2>Property Details</h2>
+      <h2>Property Details</h2>
 
-<p><strong>Location:</strong> Sahakarnagar, Pune</p>
-<p><strong>Price:</strong> ₹4Cr</p>
-<p><strong>Configuration:</strong> 3 BHK</p>
-<p><strong>Area:</strong> 1240 sq.ft Carpet</p>
-<p><strong>Area:</strong> 1736 sq.ft saleable</p>
+      <p><strong>Location:</strong> Sahakarnagar, Pune</p>
+      <p><strong>Price:</strong> ₹4Cr</p>
+      <p><strong>Configuration:</strong> 3 BHK</p>
+      <p><strong>Area:</strong> 1240 sq.ft Carpet</p>
+      <p><strong>Area:</strong> 1736 sq.ft saleable</p>
 
-<br>
+      <br>
 
-<h3>Description</h3>
+      <h3>Description</h3>
 
-<p>
-Premium residential apartment located in one of the best residential areas of Sahakarnagar.
-Excellent connectivity, peaceful surroundings and high resale potential.
-</p>
+      <p>
+      Premium residential apartment located in one of the best residential areas of Sahakarnagar.
+      Excellent connectivity, peaceful surroundings and high resale potential.
+      </p>
 
-<br>
+      <br>
 
-<a href="https://wa.me/919011802207?text=I am interested in Luxury Apartment in Baner"
-class="details-btn" target="_blank">
-Enquire on WhatsApp
-</a>
+      <a href="https://wa.me/919011802207?text=I am interested in Luxury Apartment in Sahakarnagar"
+      class="details-btn" target="_blank">
+      Enquire on WhatsApp
+      </a>
 
-</div>
-
-<!-- RIGHT SIDE IMAGE SLIDER -->
-<div>
-
-  <div class="detail-slider">
-
-    <div class="detail-slides">
-      <img src="images/sale1-1.jpeg" class="active" alt="">
-      <img src="images/sale1-2.jpeg" alt="">
-      <img src="images/sale1-3.jpeg" alt="">
-      <img src="images/sale1-4.jpeg" alt="">
-      <img src="images/sale1-5.jpeg" alt="">
-      <img src="images/sale1-6.jpeg" alt="">
-      <img src="images/sale1-7.jpeg" alt="">
-      <img src="images/sale1-8.jpeg" alt="">
-      <img src="images/sale1-9.jpeg" alt="">
-      <img src="images/sale1-10.jpeg" alt="">
-      <img src="images/sale1-11.jpeg" alt="">
-      <img src="images/sale1-12.jpeg" alt="">
     </div>
 
-    <button class="slide-btn prev" onclick="changeSlide(-1,this)">‹</button>
-    <button class="slide-btn next" onclick="changeSlide(1,this)">›</button>
+    <div>
+
+      <div class="detail-slider">
+
+        <div class="detail-slides">
+          <img src="images/sale1-1.jpeg" class="active" alt="">
+          <img src="images/sale1-2.jpeg" alt="">
+          <img src="images/sale1-3.jpeg" alt="">
+          <img src="images/sale1-4.jpeg" alt="">
+          <img src="images/sale1-5.jpeg" alt="">
+          <img src="images/sale1-6.jpeg" alt="">
+          <img src="images/sale1-7.jpeg" alt="">
+          <img src="images/sale1-8.jpeg" alt="">
+          <img src="images/sale1-9.jpeg" alt="">
+          <img src="images/sale1-10.jpeg" alt="">
+          <img src="images/sale1-11.jpeg" alt="">
+          <img src="images/sale1-12.jpeg" alt="">
+        </div>
+
+        <button class="slide-btn prev" onclick="changeSlide(-1,this)">‹</button>
+        <button class="slide-btn next" onclick="changeSlide(1,this)">›</button>
+
+      </div>
+
+    </div>
 
   </div>
-
-</div>
-
-</div>
 </section>
 
 <footer class="site-footer">
@@ -142,37 +142,7 @@ Enquire on WhatsApp
 </footer>
 
 <script>
-/* listing page sliders (unchanged – safe to keep) */
-setInterval(()=>{
-  document.querySelectorAll(".slider").forEach(slider=>{
-    const slides = slider.querySelectorAll(".slide");
-    let i = parseInt(slider.dataset.index || 0);
-
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
-
-    slider.dataset.index = i;
-  });
-},3000);
-
-/* location filter (unchanged) */
-function filterByLocation(){
-  const value = document.getElementById("locationFilter")?.value;
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card=>{
-    const loc = card.getAttribute("data-location");
-
-    if(value === "all" || loc === value){
-      card.style.display = "";
-    }else{
-      card.style.display = "none";
-    }
-  });
-}
-
-/* ✅ DETAIL PAGE SLIDER FUNCTION (ADDED) */
+/* DETAIL PAGE SLIDER FUNCTION */
 function changeSlide(step, btn){
 
   const slider = btn.closest(".detail-slider");
@@ -198,4 +168,3 @@ function changeSlide(step, btn){
 
 </body>
 </html>
-
