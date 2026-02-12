@@ -1,91 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <title>Homes for Rent</title>
 </head>
 <body>
 
 <nav>
-<div class="nav-wrap">
-<img src="images/logo.png" alt="Paradise Realtors">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="rent.html">Home for Rent</a></li>
-<li><a href="sale.html">Home for Sale</a></li>
-<li><a href="plot.html">Plot for Sale</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <div class="nav-wrap">
+    <img src="images/logo.png" alt="Paradise Realtors">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="rent.html">Home for Rent</a></li>
+      <li><a href="sale.html">Home for Sale</a></li>
+      <li><a href="plot.html">Plot for Sale</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="hero" style="
 background:
-linear-gradient(rgba(10, 27, 46, 0.008),rgba(10, 27, 46, 0)),
+linear-gradient(rgba(10, 27, 46, 0.6),rgba(10, 27, 46, 0.6)),
 url('images/background.png');
 background-size:cover;
 background-position:center;
 ">
-<h1>Plot for Sale</h1>
+  <h1>Homes for Rent</h1>
 </div>
 
 <section>
-<div class="container">
+  <div class="container">
 
-<div class="filter">
-<select id="locationFilter" onchange="filterByLocation()">
-<option value="all">All</option>
-<option value="Baner">Baner</option>
-<option value="Wakad">Wakad</option>
-<option value="Katraj">Katraj</option>
-<option value="Hinjewadi">Hinjewadi</option>
-</select>
-</div>
+    <div class="filter">
+      <select id="locationFilter" onchange="filterByLocation()">
+        <option value="all">All Locations</option>
+        <option value="Baner">Baner</option>
+        <option value="Wakad">Wakad</option>
+        <option value="Katraj">Katraj</option>
+        <option value="Hinjewadi">Hinjewadi</option>
+      </select>
+    </div>
 
-<div class="grid">
+    <div class="grid">
 
-<!-- CARD 1 -->
-<div class="card" data-location="Hinjewadi">
+      <div class="card" data-location="Hinjewadi">
 
-  <div class="slider" data-index="0">
-    <div class="slide active"><img src="images/rent1-1.jpeg" alt=""></div>
-    <div class="slide"><img src="images/rent1-2.jpg" alt=""></div>
+        <div class="slider" data-index="0">
+          <div class="slide active"><img src="images/rent1-1.jpeg" alt=""></div>
+          <div class="slide"><img src="images/rent1-2.jpg" alt=""></div>
+        </div>
+
+        <div class="card-body">
+          <span class="badge">For Rent</span>
+          <h3>3BHK – Hinjewadi</h3>
+          <p>₹30,000 / month</p>
+          <a href="rent1.html" class="details-btn">View Details</a>
+        </div>
+
+      </div>
+
+      <div class="card" data-location="Hinjewadi">
+
+        <div class="slider" data-index="0">
+          <div class="slide active"><img src="images/rent1-1.jpg" alt=""></div>
+          <div class="slide"><img src="images/rent1-2.jpg" alt=""></div>
+        </div>
+
+        <div class="card-body">
+          <span class="badge">For Rent</span>
+          <h3>3BHK – Hinjewadi</h3>
+          <p>₹30,000 / month</p>
+          <a href="rent2.html" class="details-btn">View Details</a>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-
-  <div class="card-body">
-    <span class="badge">For Rent</span>
-    <h3>3BHK – Hinjewadi</h3>
-    <p>₹30,000 / month</p>
-    <a href="rent1.html" class="details-btn">View Details</a>
-  </div>
-
-</div>
-
-<!-- CARD 2 -->
-<div class="card" data-location="Hinjewadi">
-
-  <div class="slider" data-index="0">
-    <div class="slide active"><img src="images/rent1-1.jpg" alt=""></div>
-    <div class="slide"><img src="images/rent1-2.jpg" alt=""></div>
-  </div>
-
-  <div class="card-body">
-    <span class="badge">For Rent</span>
-    <h3>3BHK – Hinjewadi</h3>
-    <p>₹30,000 / month</p>
-    <a href="rent2.html" class="details-btn">View Details</a>
-  </div>
-
-</div>
-
-</div>
-
-</div>
-</div>
 </section>
-
-<!-- ONLY FOOTER CHANGED BELOW -->
 
 <footer class="site-footer">
   <div class="footer-wrap">
@@ -142,13 +138,15 @@ background-position:center;
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
-    let i = parseInt(slider.dataset.index || 0);
+    if(slides.length > 0) {
+        let i = parseInt(slider.dataset.index || 0);
 
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
+        slides[i].classList.remove("active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("active");
 
-    slider.dataset.index = i;
+        slider.dataset.index = i;
+    }
   });
 },3000);
 
@@ -171,5 +169,3 @@ function filterByLocation(){
 
 </body>
 </html>
-
-
