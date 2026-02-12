@@ -1,60 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <title>Contact Us</title>
 </head>
 <body>
 
 <nav>
-<div class="nav-wrap">
-<img src="images/logo.png">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="rent.html">Home for Rent</a></li>
-<li><a href="sale.html">Home for Sale</a></li>
-<li><a href="plot.html">Plot for Sale</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <div class="nav-wrap">
+    <img src="images/logo.png" alt="Paradise Realtors">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="rent.html">Home for Rent</a></li>
+      <li><a href="sale.html">Home for Sale</a></li>
+      <li><a href="plot.html">Plot for Sale</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="hero" style="
 background:
-linear-gradient(rgba(10, 27, 46, 0),rgba(10, 27, 46, 0)),
+linear-gradient(rgba(10, 27, 46, 0.6),rgba(10, 27, 46, 0.6)),
 url('images/background.png');
 background-size:cover;
 background-position:center;
 ">
-<h1>Contact Paradise Realtors</h1>
+  <h1>Contact Paradise Realtors</h1>
 </div>
 
 <section>
-<div class="container split">
+  <div class="container split">
 
-<div>
+    <div>
+      <form onsubmit="sendWA(event)">
+        <input id="n" placeholder="Name" required>
+        <input id="p" placeholder="Phone" required>
+        <textarea id="m" placeholder="Message" rows="5"></textarea>
+        <button type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
 
-<form onsubmit="sendWA(event)">
-<input id="n" placeholder="Name" required>
-<input id="p" placeholder="Phone" required>
-<textarea id="m" placeholder="Message"></textarea>
-<button type="submit">Send on WhatsApp</button>
-</form>
+    <div>
+      <h3>Contact Info</h3>
+      <p style="margin-top: 15px;"><strong>Email:</strong> paradiserealtors.pune@gmail.com</p>
+      <p><strong>Phone:</strong> +91 9011802207</p>
+      <p><strong>Location:</strong> Pune, Maharashtra</p>
+    </div>
 
-</div>
-
-<div>
-<h3>Contact Info</h3>
-<p>Email: paradiserealtors.pune@gmail.com</p>
-<p>Phone: +91 9011802207</p>
-<p>Location: Pune, Maharashtra</p>
-</div>
-
-</div>
+  </div>
 </section>
-
-<!-- ONLY FOOTER CHANGED BELOW -->
 
 <footer class="site-footer">
   <div class="footer-wrap">
@@ -107,8 +104,7 @@ background-position:center;
 </footer>
 
 <script>
-
-/* ✅ WhatsApp form function – ADDED */
+/* WhatsApp form function */
 function sendWA(e){
   e.preventDefault();
 
@@ -125,39 +121,7 @@ function sendWA(e){
 
   window.open(url, "_blank");
 }
-
-/* slider (same logic, cleaned) */
-setInterval(()=>{
-  document.querySelectorAll(".slider").forEach(slider=>{
-    const slides = slider.querySelectorAll(".slide");
-    let i = parseInt(slider.dataset.index || 0);
-
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
-
-    slider.dataset.index = i;
-  });
-},3000);
-
-/* location filter */
-function filterByLocation(){
-  const value = document.getElementById("locationFilter").value;
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card=>{
-    const loc = card.getAttribute("data-location");
-
-    if(value === "all" || loc === value){
-      card.style.display = "";
-    }else{
-      card.style.display = "none";
-    }
-  });
-}
 </script>
 
 </body>
 </html>
-
-
