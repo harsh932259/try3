@@ -10,7 +10,14 @@
 <nav>
   <div class="nav-wrap">
     <img src="images/logo.png" alt="Paradise Realtors">
-    <ul>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="menuList">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="rent.html">Home for Rent</a></li>
@@ -35,9 +42,7 @@ background-position:center;
   <div class="container split">
 
     <div>
-
       <h2>Property Details</h2>
-
       <p><strong>Location:</strong> Sahakarnagar, Pune</p>
       <p><strong>Price:</strong> ₹4Cr</p>
       <p><strong>Configuration:</strong> 3 BHK</p>
@@ -47,7 +52,6 @@ background-position:center;
       <br>
 
       <h3>Description</h3>
-
       <p>
       Premium residential apartment located in one of the best residential areas of Sahakarnagar.
       Excellent connectivity, peaceful surroundings and high resale potential.
@@ -59,13 +63,10 @@ background-position:center;
       class="details-btn" target="_blank">
       Enquire on WhatsApp
       </a>
-
     </div>
 
     <div>
-
       <div class="detail-slider">
-
         <div class="detail-slides">
           <img src="images/rent1-1.jpeg" class="active" alt="">
 
@@ -79,9 +80,7 @@ background-position:center;
 
         <button class="slide-btn prev" onclick="changeSlide(-1,this)">‹</button>
         <button class="slide-btn next" onclick="changeSlide(1,this)">›</button>
-
       </div>
-
     </div>
 
   </div>
@@ -89,7 +88,6 @@ background-position:center;
 
 <footer class="site-footer">
   <div class="footer-wrap">
-
     <div class="footer-col">
       <img src="images/logo.png" class="footer-logo">
       <p>
@@ -129,7 +127,6 @@ background-position:center;
       <p>✉ paradiserealtors.pune@gmail.com</p>
       <p>WhatsApp available</p>
     </div>
-
   </div>
 
   <div class="footer-bottom">
@@ -138,70 +135,48 @@ background-position:center;
 </footer>
 
 <script>
+/* Toggle Mobile Menu */
+function toggleMenu() {
+  const menu = document.getElementById("menuList");
+  menu.classList.toggle("show-menu");
+}
 
-/* listing page sliders – safe to keep */
+/* listing page sliders logic */
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
-    
-    // Safety check added
     if(slides.length > 0) {
         let i = parseInt(slider.dataset.index || 0);
-
         slides[i].classList.remove("active");
         i = (i + 1) % slides.length;
         slides[i].classList.add("active");
-
         slider.dataset.index = i;
     }
   });
 },3000);
 
-/* location filter – safe to keep */
-function filterByLocation(){
-  const value = document.getElementById("locationFilter")?.value;
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card=>{
-    const loc = card.getAttribute("data-location");
-
-    if(value === "all" || loc === value){
-      card.style.display = "";
-    }else{
-      card.style.display = "none";
-    }
-  });
-}
-
 /* DETAIL PAGE SLIDER (IMAGE + VIDEO) */
 function changeSlide(step, btn){
-
   const slider = btn.closest(".detail-slider");
-  // Select both images AND videos
-  const items  = slider.querySelectorAll(".detail-slides img, .detail-slides video");
+  const items = slider.querySelectorAll(".detail-slides img, .detail-slides video");
 
   let index = 0;
-
   items.forEach((el,i)=>{
     if(el.classList.contains("active")){
       index = i;
     }
     el.classList.remove("active");
-
-    // If the slide we are hiding is a video, pause it
     if(el.tagName === "VIDEO"){
       el.pause();
     }
   });
 
   index = index + step;
-
   if(index < 0) index = items.length - 1;
   if(index >= items.length) index = 0;
 
   items[index].classList.add("active");
 }
-
 </script>
 
 </body>
