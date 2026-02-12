@@ -1,99 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <title>About Us</title>
 </head>
 <body>
 
 <nav>
-<div class="nav-wrap">
-<img src="images/logo.png">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="rent.html">Home for Rent</a></li>
-<li><a href="sale.html">Home for Sale</a></li>
-<li><a href="plot.html">Plot for Sale</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <div class="nav-wrap">
+    <img src="images/logo.png" alt="Paradise Realtors">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="rent.html">Home for Rent</a></li>
+      <li><a href="sale.html">Home for Sale</a></li>
+      <li><a href="plot.html">Plot for Sale</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="hero" style="
 background:
-linear-gradient(rgba(10, 27, 46, 0),rgba(10, 27, 46, 0)),
+linear-gradient(rgba(10, 27, 46, 0.6),rgba(10, 27, 46, 0.6)),
 url('images/background.png');
 background-size:cover;
 background-position:center;
 ">
-<h1>Welcome to Paradise Realtors – Your Gateway to Elegant & Peaceful Living</h1>
+  <div style="padding: 20px;">
+    <h1>Welcome to Paradise Realtors – Your Gateway to Elegant & Peaceful Living</h1>
+  </div>
 </div>
 
 <section>
-<div class="container split">
+  <div class="container split">
 
-<div>
+    <div>
 
-<h2>About Paradise Realtors</h2>
+      <h2>About Paradise Realtors</h2>
 
-<p>
-Paradise Realtors is a professional real estate consultancy based in Pune, offering reliable and transparent
-property solutions for residential, commercial and investment requirements. We assist individuals, families,
-investors and business owners in making confident and well-informed real estate decisions through verified
-listings, strong local market knowledge and personalised guidance.
-</p>
+      <p>
+      Paradise Realtors is a professional real estate consultancy based in Pune, offering reliable and transparent
+      property solutions for residential, commercial and investment requirements. We assist individuals, families,
+      investors and business owners in making confident and well-informed real estate decisions through verified
+      listings, strong local market knowledge and personalised guidance.
+      </p>
 
-<p>
-Our approach focuses on long-term value, clear communication and a seamless client experience. We believe
-successful real estate outcomes are built on trust, accuracy and practical advice tailored to each client’s
-needs.
-</p>
+      <p>
+      Our approach focuses on long-term value, clear communication and a seamless client experience. We believe
+      successful real estate outcomes are built on trust, accuracy and practical advice tailored to each client’s
+      needs.
+      </p>
 
-<h3>Our Mission</h3>
+      <h3>Our Mission</h3>
 
-<p>
-Our mission is to simplify the real estate process by providing transparent, ethical and client-focused
-services. We aim to ensure that every transaction is professionally handled, stress-free and aligned with
-our clients’ long-term financial and lifestyle goals.
-</p>
+      <p>
+      Our mission is to simplify the real estate process by providing transparent, ethical and client-focused
+      services. We aim to ensure that every transaction is professionally handled, stress-free and aligned with
+      our clients’ long-term financial and lifestyle goals.
+      </p>
 
-<h3>Our Services</h3>
-<ul>
-<li>Residential and commercial property transactions</li>
-<li>Plot and land sales</li>
-<li>Rental and leasing services</li>
-<li>Real estate investment consulting</li>
-<li>Property assistance and coordination support</li>
-</ul>
+      <h3>Our Services</h3>
+      <ul>
+        <li>Residential and commercial property transactions</li>
+        <li>Plot and land sales</li>
+        <li>Rental and leasing services</li>
+        <li>Real estate investment consulting</li>
+        <li>Property assistance and coordination support</li>
+      </ul>
 
-<h3>Why Choose Paradise Realtors</h3>
-<ul>
-<li>Strong Pune market expertise and local area knowledge</li>
-<li>Verified properties with transparent documentation support</li>
-<li>No hidden charges and clear professional communication</li>
-<li>Direct and reliable assistance without unnecessary intermediaries</li>
-<li>Client-centric service with long-term relationship focus</li>
-</ul>
+      <h3>Why Choose Paradise Realtors</h3>
+      <ul>
+        <li>Strong Pune market expertise and local area knowledge</li>
+        <li>Verified properties with transparent documentation support</li>
+        <li>No hidden charges and clear professional communication</li>
+        <li>Direct and reliable assistance without unnecessary intermediaries</li>
+        <li>Client-centric service with long-term relationship focus</li>
+      </ul>
 
-<p>
-<strong>Email:</strong> paradiserealtors.pune@gmail.com<br>
-<strong>Phone:</strong> +91 90118 02207
-</p>
+      <p>
+      <strong>Email:</strong> paradiserealtors.pune@gmail.com<br>
+      <strong>Phone:</strong> +91 90118 02207
+      </p>
 
-</div>
+    </div>
 
-<img src="/images/background.png" alt="Paradise Realtors Property">
+    <img src="images/background.png" alt="Paradise Realtors Property">
 
-</div>
+  </div>
 </section>
-<!-- ONLY FOOTER CHANGED BELOW -->
 
 <footer class="site-footer">
   <div class="footer-wrap">
 
     <div class="footer-col">
-      <img src="/images/logo.png" class="footer-logo">
+      <img src="images/logo.png" class="footer-logo">
       <p>
         Paradise Realtors is a Pune based real-estate consultancy
         helping clients buy, rent and invest in premium residential
@@ -144,34 +146,18 @@ our clients’ long-term financial and lifestyle goals.
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
-    let i = parseInt(slider.dataset.index || 0);
+    if(slides.length > 0) { // Safety check added
+        let i = parseInt(slider.dataset.index || 0);
 
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
+        slides[i].classList.remove("active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("active");
 
-    slider.dataset.index = i;
-  });
-},3000);
-
-/* location filter */
-function filterByLocation(){
-  const value = document.getElementById("locationFilter").value;
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card=>{
-    const loc = card.getAttribute("data-location");
-
-    if(value === "all" || loc === value){
-      card.style.display = "";
-    }else{
-      card.style.display = "none";
+        slider.dataset.index = i;
     }
   });
-}
+},3000);
 </script>
 
 </body>
-
 </html>
-
