@@ -10,7 +10,14 @@
 <nav>
   <div class="nav-wrap">
     <img src="images/logo.png" alt="Paradise Realtors Logo">
-    <ul>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="menuList">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="rent.html">Home for Rent</a></li>
@@ -122,6 +129,28 @@ background-position:center;
     © 2026 Paradise Realtors – Pune
   </div>
 </footer>
+
+<script>
+  /* Toggle Mobile Menu */
+  function toggleMenu() {
+    const menu = document.getElementById("menuList");
+    menu.classList.toggle("show-menu");
+  }
+
+  /* Existing Slider Logic */
+  setInterval(()=>{
+    document.querySelectorAll(".slider").forEach(slider=>{
+      const slides = slider.querySelectorAll(".slide");
+      if(slides.length > 0){
+        let i = parseInt(slider.dataset.index || 0);
+        slides[i].classList.remove("active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("active");
+        slider.dataset.index = i;
+      }
+    });
+  },3000);
+</script>
 
 </body>
 </html>
