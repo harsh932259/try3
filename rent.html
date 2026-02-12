@@ -10,7 +10,14 @@
 <nav>
   <div class="nav-wrap">
     <img src="images/logo.png" alt="Paradise Realtors">
-    <ul>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="menuList">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="rent.html">Home for Rent</a></li>
@@ -23,7 +30,7 @@
 
 <div class="hero" style="
 background:
-linear-gradient(rgba(10, 27, 46, 0.008),rgba(10, 27, 46, 0)),
+linear-gradient(rgba(10, 27, 46, 0.6),rgba(10, 27, 46, 0.6)),
 url('images/background.png');
 background-size:cover;
 background-position:center;
@@ -36,7 +43,7 @@ background-position:center;
 
     <div class="filter">
       <select id="locationFilter" onchange="filterByLocation()">
-        <option value="all">All</option>
+        <option value="all">All Locations</option>
         <option value="Baner">Baner</option>
         <option value="Wakad">Wakad</option>
         <option value="Katraj">Katraj</option>
@@ -134,12 +141,16 @@ background-position:center;
 </footer>
 
 <script>
+/* Toggle Mobile Menu */
+function toggleMenu() {
+  const menu = document.getElementById("menuList");
+  menu.classList.toggle("show-menu");
+}
+
 /* slider (same logic, cleaned) */
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
-    
-    // Safety check: only run if there are slides
     if(slides.length > 0) {
         let i = parseInt(slider.dataset.index || 0);
 
