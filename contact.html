@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+<title>Contact Us</title>
+</head>
+<body>
+
+<nav>
+<div class="nav-wrap">
+<img src="/images/logo.png">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="rent.html">Home for Rent</a></li>
+<li><a href="sale.html">Home for Sale</a></li>
+<li><a href="plot.html">Plot for Sale</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="hero" style="
+background:
+linear-gradient(rgba(10, 27, 46, 0),rgba(10, 27, 46, 0)),
+url('/images/background.png');
+background-size:cover;
+background-position:center;
+">
+<h1>Contact Paradise Realtors</h1>
+</div>
+
+<section>
+<div class="container split">
+
+<div>
+
+<form onsubmit="sendWA(event)">
+<input id="n" placeholder="Name" required>
+<input id="p" placeholder="Phone" required>
+<textarea id="m" placeholder="Message"></textarea>
+<button type="submit">Send on WhatsApp</button>
+</form>
+
+</div>
+
+<div>
+<h3>Contact Info</h3>
+<p>Email: paradiserealtors.pune@gmail.com</p>
+<p>Phone: +91 9011802207</p>
+<p>Location: Pune, Maharashtra</p>
+</div>
+
+</div>
+</section>
+
+<!-- ONLY FOOTER CHANGED BELOW -->
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+
+    <div class="footer-col">
+      <img src="/images/logo.png" class="footer-logo">
+      <p>
+        Paradise Realtors is a Pune based real-estate consultancy
+        helping clients buy, rent and invest in premium residential
+        and commercial properties.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="rent.html">Home for Rent</a></li>
+        <li><a href="sale.html">Home for Sale</a></li>
+        <li><a href="plot.html">Plot for Sale</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li>Residential Properties</li>
+        <li>Commercial Properties</li>
+        <li>Plots & Land Deals</li>
+        <li>Rental & Leasing</li>
+        <li>Property Consulting</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Pune, Maharashtra</p>
+      <p>📞 +91 9011802207</p>
+      <p>✉ paradiserealtors.pune@gmail.com</p>
+      <p>WhatsApp available</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Paradise Realtors – Pune
+  </div>
+</footer>
+
+<script>
+
+/* ✅ WhatsApp form function – ADDED */
+function sendWA(e){
+  e.preventDefault();
+
+  const name = document.getElementById("n").value;
+  const phone = document.getElementById("p").value;
+  const msg = document.getElementById("m").value;
+
+  const text =
+    "Name: " + name +
+    "%0APhone: " + phone +
+    "%0AMessage: " + msg;
+
+  const url = "https://wa.me/919011802207?text=" + text;
+
+  window.open(url, "_blank");
+}
+
+/* slider (same logic, cleaned) */
+setInterval(()=>{
+  document.querySelectorAll(".slider").forEach(slider=>{
+    const slides = slider.querySelectorAll(".slide");
+    let i = parseInt(slider.dataset.index || 0);
+
+    slides[i].classList.remove("active");
+    i = (i + 1) % slides.length;
+    slides[i].classList.add("active");
+
+    slider.dataset.index = i;
+  });
+},3000);
+
+/* location filter */
+function filterByLocation(){
+  const value = document.getElementById("locationFilter").value;
+  const cards = document.querySelectorAll(".card");
+
+  cards.forEach(card=>{
+    const loc = card.getAttribute("data-location");
+
+    if(value === "all" || loc === value){
+      card.style.display = "";
+    }else{
+      card.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
