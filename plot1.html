@@ -1,84 +1,104 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Luxury Apartment – Baner | Paradise Realtors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
+<title>Homes for Sale</title>
 </head>
 <body>
 
 <nav>
-<div class="nav-wrap">
-<img src="images/logo.png" alt="Paradise Realtors">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="rent.html">Home for Rent</a></li>
-<li><a href="sale.html">Home for Sale</a></li>
-<li><a href="plot.html">Plot for Sale</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <div class="nav-wrap">
+    <img src="images/logo.png" alt="Paradise Realtors">
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="menuList">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="rent.html">Home for Rent</a></li>
+      <li><a href="sale.html">Home for Sale</a></li>
+      <li><a href="plot.html">Plot for Sale</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="hero" style="
 background:
-linear-gradient(rgba(10,27,46,.55),rgba(10,27,46,.55)),
-url('images/sale1-1.jpeg');
+linear-gradient(rgba(10, 27, 46, 0.6),rgba(10, 27, 46, 0.6)),
+url('images/background.png');
 background-size:cover;
 background-position:center;
 ">
-<h1>Luxury Apartment – Sahakarnagar</h1>
+  <h1>Homes for Sale</h1>
 </div>
 
 <section>
-<div class="container split">
+  <div class="container">
 
-<div>
-
-<h2>Property Details</h2>
-
-<p><strong>Location:</strong> Sahakarnagar, Pune</p>
-<p><strong>Price:</strong> ₹4Cr</p>
-<p><strong>Configuration:</strong> 3 BHK</p>
-<p><strong>Area:</strong> 1240 sq.ft Carpet</p>
-<p><strong>Area:</strong> 1736 sq.ft saleable</p>
-
-<br>
-
-<h3>Description</h3>
-
-<p>
-Premium residential apartment located in one of the best residential areas of Sahakarnagar.
-Excellent connectivity, peaceful surroundings and high resale potential.
-</p>
-
-<br>
-
-<a href="https://wa.me/919011802207?text=I am interested in Luxury Apartment in Baner"
-class="details-btn" target="_blank">
-Enquire on WhatsApp
-</a>
-
-</div>
-
-<!-- RIGHT SIDE IMAGE SLIDER -->
-<div>
-
-  <div class="detail-slider">
-
-    <div class="detail-slides">
-      <img src="images/sale1-1.jpeg" class="active" alt="">
-      <img src="images/sale1-2.jpeg" alt="">
+    <div class="filter">
+      <select id="locationFilter" onchange="filterByLocation()">
+        <option value="all">All</option>
+        <option value="Baner">Baner</option>
+        <option value="Wakad">Wakad</option>
+        <option value="Katraj">Katraj</option>
+        <option value="Hinjewadi">Hinjewadi</option>
+        <option value="Sahakarnagar">Sahakarnagar</option>
+      </select>
     </div>
 
-    <button class="slide-btn prev" onclick="changeSlide(-1,this)">‹</button>
-    <button class="slide-btn next" onclick="changeSlide(1,this)">›</button>
+    <div class="grid">
+
+      <div class="card" data-location="Sahakarnagar">
+
+        <div class="slider" data-index="0">
+          <div class="slide active"><img src="images/sale1-1.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-2.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-3.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-4.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-5.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-6.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-7.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-8.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-9.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-10.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-11.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-12.jpeg" alt=""></div>
+        </div>
+
+        <div class="card-body">
+          <span class="badge">For Sale</span>
+          <h3>Luxury Apartment – Sahakarnagar</h3>
+          <p>₹1.2 Cr</p>
+          <a href="sale1.html" class="details-btn">View Details</a>
+        </div>
+
+      </div>
+
+      <div class="card" data-location="Baner">
+
+        <div class="slider" data-index="0">
+          <div class="slide active"><img src="images/sale1-1.jpg" alt=""></div>
+          <div class="slide"><img src="images/sale1-2.jpg" alt=""></div>
+        </div>
+
+        <div class="card-body">
+          <span class="badge">For Sale</span>
+          <h3>Luxury Apartment – Baner</h3>
+          <p>₹1.2 Cr</p>
+          <a href="sale2.html" class="details-btn">View Details</a>
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
-
-</div>
-
-</div>
 </section>
 
 <footer class="site-footer">
@@ -132,23 +152,32 @@ Enquire on WhatsApp
 </footer>
 
 <script>
-/* listing page sliders (unchanged – safe to keep) */
+/* Toggle Mobile Menu (ADDED THIS) */
+function toggleMenu() {
+  const menu = document.getElementById("menuList");
+  menu.classList.toggle("show-menu");
+}
+
+/* slider (same logic, cleaned) */
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
-    let i = parseInt(slider.dataset.index || 0);
+    
+    if(slides.length > 0) { // Safety check added
+        let i = parseInt(slider.dataset.index || 0);
 
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
+        slides[i].classList.remove("active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("active");
 
-    slider.dataset.index = i;
+        slider.dataset.index = i;
+    }
   });
 },3000);
 
-/* location filter (unchanged) */
+/* location filter */
 function filterByLocation(){
-  const value = document.getElementById("locationFilter")?.value;
+  const value = document.getElementById("locationFilter").value;
   const cards = document.querySelectorAll(".card");
 
   cards.forEach(card=>{
@@ -161,31 +190,7 @@ function filterByLocation(){
     }
   });
 }
-
-/* ✅ DETAIL PAGE SLIDER FUNCTION (ADDED) */
-function changeSlide(step, btn){
-
-  const slider = btn.closest(".detail-slider");
-  const slides = slider.querySelectorAll(".detail-slides img");
-
-  let index = 0;
-
-  slides.forEach((img,i)=>{
-    if(img.classList.contains("active")){
-      index = i;
-    }
-    img.classList.remove("active");
-  });
-
-  index = index + step;
-
-  if(index < 0) index = slides.length - 1;
-  if(index >= slides.length) index = 0;
-
-  slides[index].classList.add("active");
-}
 </script>
 
 </body>
 </html>
-
