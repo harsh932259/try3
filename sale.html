@@ -1,100 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 <title>Homes for Sale</title>
 </head>
 <body>
 
 <nav>
-<div class="nav-wrap">
-<img src="images/logo.png" alt="Paradise Realtors">
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="rent.html">Home for Rent</a></li>
-<li><a href="sale.html">Home for Sale</a></li>
-<li><a href="plot.html">Plot for Sale</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
+  <div class="nav-wrap">
+    <img src="images/logo.png" alt="Paradise Realtors">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="rent.html">Home for Rent</a></li>
+      <li><a href="sale.html">Home for Sale</a></li>
+      <li><a href="plot.html">Plot for Sale</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="hero" style="
 background:
-linear-gradient(rgba(10, 27, 46, 0),rgba(10, 27, 46, 0)),
+linear-gradient(rgba(10, 27, 46, 0.6),rgba(10, 27, 46, 0.6)),
 url('images/background.png');
 background-size:cover;
 background-position:center;
 ">
-<h1>Homes for Sale</h1>
+  <h1>Homes for Sale</h1>
 </div>
 
 <section>
-<div class="container">
+  <div class="container">
 
-<div class="filter">
-<select id="locationFilter" onchange="filterByLocation()">
-<option value="all">All</option>
-<option value="Baner">Baner</option>
-<option value="Wakad">Wakad</option>
-<option value="Katraj">Katraj</option>
-<option value="Hinjewadi">Hinjewadi</option>
-<option value="Sahakarnagar">Sahakarnagar</option>
-</select>
-</div>
+    <div class="filter">
+      <select id="locationFilter" onchange="filterByLocation()">
+        <option value="all">All</option>
+        <option value="Baner">Baner</option>
+        <option value="Wakad">Wakad</option>
+        <option value="Katraj">Katraj</option>
+        <option value="Hinjewadi">Hinjewadi</option>
+        <option value="Sahakarnagar">Sahakarnagar</option>
+      </select>
+    </div>
 
-<div class="grid">
+    <div class="grid">
 
-<!-- CARD 1 -->
-<div class="card" data-location="Sahakarnagar">
+      <div class="card" data-location="Sahakarnagar">
 
-  <div class="slider" data-index="0">
-    <div class="slide active"><img src="images/sale1-1.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-2.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-3.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-4.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-5.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-6.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-7.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-8.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-9.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-10.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-11.jpeg" alt=""></div>
-    <div class="slide"><img src="images/sale1-12.jpeg" alt=""></div>
+        <div class="slider" data-index="0">
+          <div class="slide active"><img src="images/sale1-1.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-2.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-3.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-4.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-5.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-6.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-7.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-8.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-9.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-10.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-11.jpeg" alt=""></div>
+          <div class="slide"><img src="images/sale1-12.jpeg" alt=""></div>
+        </div>
+
+        <div class="card-body">
+          <span class="badge">For Sale</span>
+          <h3>Luxury Apartment – Sahakarnagar</h3>
+          <p>₹1.2 Cr</p>
+          <a href="sale1.html" class="details-btn">View Details</a>
+        </div>
+
+      </div>
+
+      <div class="card" data-location="Baner">
+
+        <div class="slider" data-index="0">
+          <div class="slide active"><img src="images/sale1-1.jpg" alt=""></div>
+          <div class="slide"><img src="images/sale1-2.jpg" alt=""></div>
+        </div>
+
+        <div class="card-body">
+          <span class="badge">For Sale</span>
+          <h3>Luxury Apartment – Baner</h3>
+          <p>₹1.2 Cr</p>
+          <a href="sale2.html" class="details-btn">View Details</a>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-
-  <div class="card-body">
-    <span class="badge">For Sale</span>
-    <h3>Luxury Apartment – Sahakarnagar</h3>
-    <p>₹1.2 Cr</p>
-    <a href="sale1.html" class="details-btn">View Details</a>
-  </div>
-
-</div>
-
-<!-- CARD 2 -->
-<div class="card" data-location="Baner">
-
-  <div class="slider" data-index="0">
-    <div class="slide active"><img src="images/sale1-1.jpg" alt=""></div>
-    <div class="slide"><img src="images/sale1-2.jpg" alt=""></div>
-  </div>
-
-  <div class="card-body">
-    <span class="badge">For Sale</span>
-    <h3>Luxury Apartment – Baner</h3>
-    <p>₹1.2 Cr</p>
-    <a href="sale2.html" class="details-btn">View Details</a>
-  </div>
-
-</div>
-
-</div>
-</div>
 </section>
-
-<!-- ONLY FOOTER CHANGED BELOW -->
 
 <footer class="site-footer">
   <div class="footer-wrap">
@@ -151,13 +149,17 @@ background-position:center;
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
-    let i = parseInt(slider.dataset.index || 0);
+    
+    // Safety check added
+    if(slides.length > 0) {
+        let i = parseInt(slider.dataset.index || 0);
 
-    slides[i].classList.remove("active");
-    i = (i + 1) % slides.length;
-    slides[i].classList.add("active");
+        slides[i].classList.remove("active");
+        i = (i + 1) % slides.length;
+        slides[i].classList.add("active");
 
-    slider.dataset.index = i;
+        slider.dataset.index = i;
+    }
   });
 },3000);
 
@@ -179,5 +181,4 @@ function filterByLocation(){
 </script>
 
 </body>
-
 </html>
