@@ -10,7 +10,14 @@
 <nav>
   <div class="nav-wrap">
     <img src="images/logo.png" alt="Paradise Realtors">
-    <ul>
+    
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul id="menuList">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="rent.html">Home for Rent</a></li>
@@ -96,7 +103,6 @@ background-position:center;
 
 <footer class="site-footer">
   <div class="footer-wrap">
-
     <div class="footer-col">
       <img src="images/logo.png" class="footer-logo">
       <p>
@@ -136,7 +142,6 @@ background-position:center;
       <p>✉ paradiserealtors.pune@gmail.com</p>
       <p>WhatsApp available</p>
     </div>
-
   </div>
 
   <div class="footer-bottom">
@@ -145,19 +150,22 @@ background-position:center;
 </footer>
 
 <script>
-/* slider (same logic, cleaned) */
+/* Toggle Mobile Menu */
+function toggleMenu() {
+  const menu = document.getElementById("menuList");
+  menu.classList.toggle("show-menu");
+}
+
+/* slider logic */
 setInterval(()=>{
   document.querySelectorAll(".slider").forEach(slider=>{
     const slides = slider.querySelectorAll(".slide");
     
-    // Safety check added
     if(slides.length > 0) {
         let i = parseInt(slider.dataset.index || 0);
-
         slides[i].classList.remove("active");
         i = (i + 1) % slides.length;
         slides[i].classList.add("active");
-
         slider.dataset.index = i;
     }
   });
