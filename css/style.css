@@ -27,12 +27,14 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
+  flex-wrap: wrap; /* Allows menu to wrap on mobile */
 }
 
 .nav-wrap img {
   height: 56px;
 }
 
+/* Default Menu (Desktop) */
 nav ul {
   list-style: none;
   display: flex;
@@ -43,6 +45,21 @@ nav a {
   text-decoration: none;
   color: #111;
   font-weight: 600;
+}
+
+/* HAMBURGER ICON (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #111;
+  border-radius: 2px;
 }
 
 /* HERO */
@@ -334,27 +351,43 @@ button {
 }
 
 /* ============================= */
-/* TABLET & MOBILE FIXES */
+/* MOBILE MENU LOGIC & FIXES */
 /* ============================= */
 
-/* Medium Screens (Tablets & Large Phones) */
-@media(max-width: 850px) {
+@media (max-width: 850px) {
+
+  /* --- HAMBURGER MENU LOGIC --- */
   
-  /* --- FIXED NAVIGATION FOR MOBILE --- */
-  /* This stacks the logo and menu vertically so they don't squish */
-  .nav-wrap {
-    flex-direction: column;
-    padding-bottom: 20px;
+  /* Show the hamburger icon */
+  .hamburger {
+    display: flex;
   }
-  
+
+  /* Hide the menu links by default */
   nav ul {
-    flex-direction: column; /* Stack links vertically */
-    align-items: center;    /* Center the text */
-    gap: 15px;              /* Space between links */
-    margin-top: 15px;
+    display: none; /* HIDDEN */
     width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20px;
+    gap: 15px;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 15px;
   }
-  /* ----------------------------------- */
+
+  /* This class is added by JS to SHOW the menu */
+  nav ul.show-menu {
+    display: flex; /* VISIBLE */
+  }
+
+  /* Make links bigger for mobile tapping */
+  nav a {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  /* --------------------------- */
 
   .split {
     grid-template-columns: 1fr;
@@ -365,11 +398,11 @@ button {
   }
   
   .footer-wrap {
-    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Small Screens (Mobile Phones) */
+/* Small Screens */
 @media (max-width: 600px) {
 
   .hero {
@@ -409,7 +442,6 @@ button {
     gap: 25px;
   }
 
-  /* Footer becomes 1 column on small mobile */
   .footer-wrap {
     grid-template-columns: 1fr;
     gap: 25px;
